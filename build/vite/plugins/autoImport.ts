@@ -4,7 +4,7 @@
  */
 
 import AutoImport from 'unplugin-auto-import/vite';
-import { VarletUIResolver, VantResolver } from 'unplugin-vue-components/resolvers';
+import { VarletUIResolver, VantResolver, ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 export const AutoImportDeps = () => {
   return AutoImport({
@@ -20,6 +20,6 @@ export const AutoImportDeps = () => {
     eslintrc: {
       enabled: true,
     },
-    resolvers: [VarletUIResolver(), VantResolver()],
+    resolvers: [VarletUIResolver(), VantResolver(), ElementPlusResolver()],
   });
 };

@@ -2,6 +2,7 @@
   <header class="header">
     <img src="https://cdn.jsdelivr.net/gh/fonghehe/picture/vue-h5-template/logo.png" /><span> {{ $t('title') }}</span>
   </header>
+  <mytree />
   <div class="intro-header">
     <div>{{ $t('introduction') }}</div>
     <a href="https://github.com/crush2020/vue3-H5-VantUI4">
@@ -37,6 +38,7 @@
   import { setLang } from '@/i18n';
   import { useI18n } from 'vue-i18n';
   import { Github, Check } from '@nutui/icons-vue';
+  import mytree from '@/components/tree/index.vue';
 
   const { locale } = useI18n();
 

@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BasicModal: typeof import('./../src/components/Modal/src/BasicModal.vue')['default']
+    ElTree: typeof import('element-plus/es')['ElTree']
     NutAvatar: typeof import('@nutui/nutui')['Avatar']
     NutButton: typeof import('@nutui/nutui')['Button']
     NutCard: typeof import('@nutui/nutui')['Card']
@@ -23,8 +24,16 @@ declare module 'vue' {
     NutTabbarItem: typeof import('@nutui/nutui')['TabbarItem']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Tree: typeof import('./../src/components/tree/index.vue')['default']
     VanButton: typeof import('vant/es')['Button']
+    VanCheckbox: typeof import('vant/es')['Checkbox']
+    VanField: typeof import('vant/es')['Field']
+    VanIcon: typeof import('vant/es')['Icon']
     VanNavBar: typeof import('vant/es')['NavBar']
+    VanPopup: typeof import('vant/es')['Popup']
+    VanRadio: typeof import('vant/es')['Radio']
+    VanRadioGroup: typeof import('vant/es')['RadioGroup']
+    VanSearch: typeof import('vant/es')['Search']
     VarButton: typeof import('@varlet/ui')['_ButtonComponent']
     VarSpace: typeof import('@varlet/ui')['_SpaceComponent']
   }

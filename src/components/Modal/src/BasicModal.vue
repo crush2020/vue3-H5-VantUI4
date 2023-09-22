@@ -17,14 +17,14 @@
     </div>
   </Popup>
 </template>
-<script lang="ts">
-  export default {
-    name: 'BasicModal',
-  };
-</script>
+<script lang="ts"></script>
 <script setup lang="ts">
   import { Popup } from 'vant';
   import 'vant/es/popup/style/index';
+
+  export default {
+    name: 'BasicModal',
+  };
 
   const props = withDefaults(
     defineProps<{

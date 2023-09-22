@@ -4,7 +4,7 @@
  */
 
 import Components from 'unplugin-vue-components/vite';
-import { VueUseComponentsResolver, VantResolver, VarletUIResolver } from 'unplugin-vue-components/resolvers';
+import { VueUseComponentsResolver, VantResolver, VarletUIResolver, ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 const NutUIResolver = () => {
   return (name) => {
@@ -30,6 +30,6 @@ export const AutoRegistryComponents = () => {
     directives: true,
     include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
     exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
-    resolvers: [VueUseComponentsResolver(), VantResolver(), VarletUIResolver(), NutUIResolver()],
+    resolvers: [VueUseComponentsResolver(), VantResolver(), VarletUIResolver(), NutUIResolver(), ElementPlusResolver()],
   });
 };
