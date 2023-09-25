@@ -1,5 +1,7 @@
 <template>
-  <el-tree :props="props" :load="loadNode" lazy show-checkbox @check-change="handleCheckChange" />
+  <div class="my_tree">
+    <el-tree :props="props" :load="loadNode" lazy show-checkbox @check-change="handleCheckChange" />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -54,3 +56,8 @@
     }, 500);
   };
 </script>
+<style scope lang="scss">
+  .my_tree {
+    // --el-color-primary: #ff9423;
+  }
+</style>

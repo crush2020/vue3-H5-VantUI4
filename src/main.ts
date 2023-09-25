@@ -5,7 +5,6 @@ import router from '@/router';
 import store from '@/store';
 import './assets/font/iconfont.css';
 import './assets/app.css';
-import './assets/element/index.scss';
 
 const app = createApp(App);
 
