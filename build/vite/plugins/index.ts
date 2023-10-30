@@ -18,6 +18,7 @@ import { ConfigProgressPlugin } from './progress';
 import { ConfigEruda } from './eruda';
 import { ConfigImageminPlugin } from './imagemin';
 import { ConfigVisualizerConfig } from './visualizer';
+import Icons from 'unplugin-icons/vite';
 
 export function createVitePlugins(env: ViteEnv, isBuild: boolean) {
   const { VITE_USE_MOCK, VITE_USE_ERUDA, VITE_USE_COMPRESS, VITE_USE_REPORT } = env;
@@ -36,6 +37,13 @@ export function createVitePlugins(env: ViteEnv, isBuild: boolean) {
 
   // 自动按需引入依赖
   vitePlugins.push(AutoImportDeps());
+
+  // 按需引入el图标
+  vitePlugins.push(
+    Icons({
+      autoInstall: true,
+    }),
+  );
 
   // 自动生成路由
   vitePlugins.push(ConfigPagesPlugin());

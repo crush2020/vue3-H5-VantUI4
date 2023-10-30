@@ -1,59 +1,54 @@
 export const routes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/loginCheck',
     component: () => import('@/layout/basic/index.vue'),
     children: [
       {
-        path: 'home',
-        component: () => import('@/views/home/index.vue'),
+        path: '/gameDownload',
+        component: () => import('@/views/gameDownload/index.vue'),
+        name: 'gameDownload',
         meta: {
-          title: 'tabbar.home',
-          keepAlive: true,
+          title: '游戏下载',
+          keepAlive: false,
         },
       },
       {
-        path: 'list',
-        component: () => import('@/views/list/index.vue'),
+        path: '/downloadRecord',
+        component: () => import('@/views/downloadRecord/index.vue'),
+        name: 'downloadRecord',
         meta: {
-          title: 'tabbar.list',
-          keepAlive: true,
+          title: '下载记录',
+          keepAlive: false,
         },
       },
       {
-        path: 'member',
-        component: () => import('@/views/member/index.vue'),
+        path: '/taskDetails',
+        component: () => import('@/views/taskDetails/index.vue'),
+        name: 'taskDetails',
         meta: {
-          title: 'tabbar.member',
-          keepAlive: true,
-        },
-      },
-      {
-        path: 'demo',
-        component: () => import('@/views/demo/index.vue'),
-        meta: {
-          title: 'tabbar.demo',
-          keepAlive: true,
-        },
-      },
-      {
-        name: 'listDetails',
-        path: '/details',
-        component: () => import('@/views/list/details/index.vue'),
-        meta: {
-          title: 'list.details',
-          border: false,
+          title: '任务详情',
+          keepAlive: false,
         },
       },
     ],
   },
   {
-    name: 'login',
-    path: '/login',
-    component: () => import('@/views/login/index.vue'),
+    name: 'loginCheck',
+    path: '/loginCheck',
+    component: () => import('@/views/login/loginCheck.vue'),
     meta: {
       title: '',
-      keepAlive: true,
+      keepAlive: false,
+    },
+  },
+  {
+    name: 'noAuth',
+    path: '/noAuth',
+    component: () => import('@/views/noAuth/index.vue'),
+    meta: {
+      title: '',
+      keepAlive: false,
     },
   },
   // 匹配不到重定向会主页

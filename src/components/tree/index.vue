@@ -1,63 +1,63 @@
 <template>
   <div class="my_tree">
-    <el-tree :props="props" :load="loadNode" lazy show-checkbox @check-change="handleCheckChange" />
+    <el-tree
+      :data="MytreeData"
+      :default-expanded-keys="expandedKeys"
+      :props="treeprops"
+      check-on-click-node
+      node-key="barId"
+      show-checkbox
+      @check="checkTree"
+    >
+      <template #default="{ data }">
+        <span
+          >{{ data.barName }}<span v-if="data.barGroupList && data.barGroupList.length > 0">({{ data.barNum }})</span></span
+        >
+      </template>
+    </el-tree>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import type Node from 'element-plus/es/components/tree/src/model/node';
+  import { onMounted } from 'vue';
 
-  let count = 1;
+  const emit = defineEmits(['checkedBar']);
 
-  interface Tree {
-    name: string;
-  }
+  const props = defineProps({
+    treeData: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
+  });
 
-  const props = {
-    label: 'name',
-    children: 'zones',
+  const treeprops = {
+    children: 'barGroupList',
+    label: 'barName',
   };
 
-  const handleCheckChange = (data: Tree, checked: boolean, indeterminate: boolean) => {
-    console.log(data, checked, indeterminate);
-  };
-
-  const loadNode = (node: Node, resolve: (data: Tree[]) => void) => {
-    if (node.level === 0) {
-      return resolve([{ name: 'Root1' }, { name: 'Root2' }]);
-    }
-    if (node.level > 3) return resolve([]);
-
-    let hasChild = false;
-    if (node.data.name === 'region1') {
-      hasChild = true;
-    } else if (node.data.name === 'region2') {
-      hasChild = false;
-    } else {
-      hasChild = Math.random() > 0.5;
-    }
-
-    setTimeout(() => {
-      let data: Tree[] = [];
-      if (hasChild) {
-        data = [
-          {
-            name: `zone${count++}`,
-          },
-          {
-            name: `zone${count++}`,
-          },
-        ];
-      } else {
-        data = [];
+  const MytreeData: any = ref([]);
+  // 选中的网吧列表
+  const checkedBar = ref([]);
+  // 默认展开的key
+  const expandedKeys = ref([-100]);
+  // 网吧分组被选中
+  const checkTree = (_data: any, node: any) => {
+    const { checkedNodes } = node;
+    const checkedArr: any = [];
+    checkedNodes.forEach((item) => {
+      if (!item.barGroupId && item.barId !== -100) {
+        checkedArr.push(item.barId);
       }
-
-      resolve(data);
-    }, 500);
+    });
+    checkedBar.value = checkedArr;
+    emit('checkedBar', checkedBar.value.join(','));
   };
+
+  onMounted(() => {
+    MytreeData.value = props.treeData;
+    console.log(MytreeData.value);
+  });
 </script>
-<style scope lang="scss">
-  .my_tree {
-    // --el-color-primary: #ff9423;
-  }
-</style>
+<style scoped lang="scss"></style>

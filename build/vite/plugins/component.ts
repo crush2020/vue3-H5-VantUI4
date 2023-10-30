@@ -5,6 +5,7 @@
 
 import Components from 'unplugin-vue-components/vite';
 import { VueUseComponentsResolver, VantResolver, VarletUIResolver, ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import IconsResolver from 'unplugin-icons/resolver';
 
 const NutUIResolver = () => {
   return (name) => {
@@ -30,6 +31,15 @@ export const AutoRegistryComponents = () => {
     directives: true,
     include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
     exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
-    resolvers: [VueUseComponentsResolver(), VantResolver(), VarletUIResolver(), NutUIResolver(), ElementPlusResolver()],
+    resolvers: [
+      VueUseComponentsResolver(),
+      VantResolver(),
+      VarletUIResolver(),
+      NutUIResolver(),
+      ElementPlusResolver(),
+      IconsResolver({
+        enabledCollections: ['ep'],
+      }),
+    ],
   });
 };

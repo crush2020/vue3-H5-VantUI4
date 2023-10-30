@@ -7,34 +7,18 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    BasicModal: typeof import('./../src/components/Modal/src/BasicModal.vue')['default']
+    ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElTree: typeof import('element-plus/es')['ElTree']
-    NutAvatar: typeof import('@nutui/nutui')['Avatar']
-    NutButton: typeof import('@nutui/nutui')['Button']
-    NutCard: typeof import('@nutui/nutui')['Card']
-    NutCell: typeof import('@nutui/nutui')['Cell']
-    NutCellGroup: typeof import('@nutui/nutui')['CellGroup']
-    NutForm: typeof import('@nutui/nutui')['Form']
-    NutFormItem: typeof import('@nutui/nutui')['FormItem']
-    NutGrid: typeof import('@nutui/nutui')['Grid']
-    NutGridItem: typeof import('@nutui/nutui')['GridItem']
-    NutSwiper: typeof import('@nutui/nutui')['Swiper']
-    NutSwiperItem: typeof import('@nutui/nutui')['SwiperItem']
-    NutTabbar: typeof import('@nutui/nutui')['Tabbar']
-    NutTabbarItem: typeof import('@nutui/nutui')['TabbarItem']
+    Heard: typeof import('./../src/components/Heard/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Tree: typeof import('./../src/components/tree/index.vue')['default']
-    VanButton: typeof import('vant/es')['Button']
-    VanCheckbox: typeof import('vant/es')['Checkbox']
-    VanField: typeof import('vant/es')['Field']
+    VanActionSheet: typeof import('vant/es')['ActionSheet']
     VanIcon: typeof import('vant/es')['Icon']
-    VanNavBar: typeof import('vant/es')['NavBar']
-    VanPopup: typeof import('vant/es')['Popup']
-    VanRadio: typeof import('vant/es')['Radio']
-    VanRadioGroup: typeof import('vant/es')['RadioGroup']
-    VanSearch: typeof import('vant/es')['Search']
-    VarButton: typeof import('@varlet/ui')['_ButtonComponent']
-    VarSpace: typeof import('@varlet/ui')['_SpaceComponent']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

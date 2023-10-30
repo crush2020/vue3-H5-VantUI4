@@ -16,6 +16,7 @@ export default function ({ command, mode }: ConfigEnv): UserConfig {
 
   return {
     root,
+    base: env.VITE_APP_STATIC_URL,
     resolve: {
       alias: [
         {
@@ -37,6 +38,13 @@ export default function ({ command, mode }: ConfigEnv): UserConfig {
     server: {
       host: true,
       hmr: true,
+      proxy: {
+        '/api': {
+          target: env.VITE_BASE_API,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+      },
     },
     plugins: createVitePlugins(viteEnv, isProduction),
     build: {

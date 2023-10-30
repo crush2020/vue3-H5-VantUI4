@@ -5,6 +5,7 @@
 
 import AutoImport from 'unplugin-auto-import/vite';
 import { VarletUIResolver, VantResolver, ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import IconsResolver from 'unplugin-icons/resolver';
 
 export const AutoImportDeps = () => {
   return AutoImport({
@@ -20,6 +21,13 @@ export const AutoImportDeps = () => {
     eslintrc: {
       enabled: true,
     },
-    resolvers: [VarletUIResolver(), VantResolver(), ElementPlusResolver()],
+    resolvers: [
+      VarletUIResolver(),
+      VantResolver(),
+      ElementPlusResolver(),
+      IconsResolver({
+        prefix: 'Icon',
+      }),
+    ],
   });
 };

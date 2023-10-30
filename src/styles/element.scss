@@ -1,3 +1,24 @@
+
 :root {
-  --el-color-primary: #ff9423;
+  .main-page{
+    --el-color-primary: #ff9423;
+    --el-color-primary-light-3: #ff9423;
+    --el-color-primary-dark-2:#ff9423;
+  }
+  .my_tree {
+      --el-font-size-base: 30px;
+  }
+}
+
+.my_tree {
+  .el-tree {
+    --el-tree-node-content-height: 80px !important;
+  }
+}
+
+.gameDownload {
+  .el-button.is-disabled {
+    background-color: #c8d0d9;
+    border-color: #d0d7de;
+  }
 }

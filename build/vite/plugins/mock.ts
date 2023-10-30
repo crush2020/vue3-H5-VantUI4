@@ -4,6 +4,7 @@
  */
 
 import { viteMockServe } from 'vite-plugin-mock';
+
 export const ConfigMockPlugin = (isBuild: boolean) => {
   return viteMockServe({
     ignore: /^\_/,

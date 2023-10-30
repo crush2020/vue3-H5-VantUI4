@@ -24,3 +24,15 @@ yarn install
 // 启动项目
 yarn dev
 ```
+
+# 静态资源
+
+https://svn.shunwang.com/svn/icloud/Code/Code_A/APPSTORE/channel/wangwei-manage/trunk/wangwei-manage-front/src/main/resources/static
+
+# 静态文件
+
+https://svn.shunwang.com/svn/icloud/Code/Code_A/APPSTORE/channel/wangwei-manage/trunk/wangwei-manage-static/src/main/webapp/
+
+然后，使用 svn 上传这些文件到代码仓库中。
+
+打开 jenkins，找到 wangwei-manage-T（这里是 T 代表 trunk，如果是分支开发，请使用 B，代表 branches），找到对象的项目，构建对应的目录。然后等待测试部署测试后的反馈。
